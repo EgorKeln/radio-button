@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*=======================================================================================================*/
+
+
+:root {
+	--boxColor: #0ff9;
+	--rotateSpeed: 30s;
+	--bounceSpeed: 1.5s;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #000;
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 75px;
+	perspective: 10em;
+	perspective-origin: 50% calc(10% - 2em);
+}
+.buttons {
+	position: relative;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+.buttons .button {
+	width: 6em;
+	height: 2em;
+	transform-style: preserve-3d;
+	position: absolute;
+	bottom: -1em;
+	cursor: pointer;
+	transition: height 0.4s ease-in-out;
+}
+.buttons .button > * {
+	transition: all 0.4s ease-in-out;
+}
+.buttons .button .left, .buttons .button .right, .buttons .button .front, .buttons .button .back {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: var(--boxColor);
+	box-shadow: 0 0 0.5em #000a inset;
+}
+.buttons .button .front {
+	width: 33.25%;
+	transform: translateZ(3em);
+}
+.buttons .button .right {
+	transform: rotateY(90deg) translateZ(-1em);
+}
+.buttons .button .back {
+	width: 33.25%;
+	transform: rotateY(180deg) translateZ(3em);
+}
+.buttons .button .left {
+	transform: rotateY(270deg) translateZ(3em);
+}
+.buttons .button .top {
+	position: absolute;
+	height: 6em;
+	width: 2em;
+	background: var(--boxColor);
+	transform: translateY(-50%) rotateX(90deg);
+	box-shadow: 0 0 0.5em #000a inset;
+}
+.buttons .button .bottom {
+	position: absolute;
+	bottom: 0.01em;
+	height: 6em;
+	width: 2em;
+	background: #0007;
+	transform: translateY(50%) rotateX(90deg);
+	box-shadow: 0 0 0.5em #000;
+}
+.buttons .button.button-a {
+	left: -4.25em;
+}
+.buttons .button.button-b {
+	left: -2em;
+}
+.buttons .button.button-c {
+	left: 0.25em;
+}
+.buttons .button.button-d {
+	left: 2.5em;
+}
+.buttons .button label {
+	line-height: 2;
+	width: 100%;
+	height: 150px;
+	display: block;
+	background: #813b10;
+	opacity: 0.99;
+	color: var(--boxColor);
+	text-align: center;
+	font-family: 'Allerta Stencil', sans-serif;
+	position: relative;
+	z-index: -1;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+}
+.buttons .button input {
+	position: absolute;
+	top: 150px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	visibility: hidden;
+}
+.buttons .button input:checked + label {
+	background: #242424;
+}
+.buttons .button input:checked + label:after {
+	left: 490px;
+	transform: translateX(-100%);
+	background: linear-gradient(180deg, #777, #3a3a3a);
+}
+.buttons .button.active {
+	height: 1em;
+}
+.buttons .button.active label {
+	background: #991a1a;
+}
+.buttons .button.active .top, .buttons .button.active .bottom, .buttons .button.active .front, .buttons .button.active .back, .buttons .button.active .left, .buttons .button.active .right {
+	background: #0ff;
+}
